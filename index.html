@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Leilão dos Brasileiros | Catálogo de lotes</title>
+  <meta name="description" content="Catálogo de lotes de imóveis, veículos, motos e outros bens. Consulte os detalhes e fale pelo WhatsApp.">
+  <meta name="theme-color" content="#0B2545">
+  <!-- URLs relativas: funcionam em GitHub Pages de repositório de projeto -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#catalogo">Ir para o catálogo</a>
+
+  <!-- Aviso exibido enquanto SITE_CONFIG.demoMode = true no script.js -->
+  <div class="demo-banner" id="demo-banner" role="note" hidden>
+    Os lotes exibidos são exemplos de demonstração e não representam bens disponíveis. Substitua os dados em script.js antes de publicar.
+  </div>
+
+  <header class="site-header" id="topo">
+    <div class="container header-inner">
+      <a class="brand" href="#topo" aria-label="Leilão dos Brasileiros, início">
+        <img class="brand-mark" src="images/favicon.svg" alt="" width="36" height="36">
+        <span class="brand-text">
+          <span class="brand-name">LEILÃO</span>
+          <span class="brand-sub">DOS BRASILEIROS</span>
+        </span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="#catalogo">Catálogo</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+        <button type="button" class="btn btn-whatsapp nav-contact" data-contact="general">Falar pelo WhatsApp</button>
+      </nav>
+
+      <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu">
+        <span class="menu-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="titulo-catalogo">
+      <div class="container">
+        <h1 id="titulo-catalogo">Catálogo de lotes</h1>
+        <p class="intro-text">Imóveis, veículos, motos e outros bens. Pesquise, confira as informações de cada lote e consulte pelo WhatsApp.</p>
+
+        <form class="search" role="search" id="search-form" novalidate>
+          <label class="visually-hidden" for="search-input">Pesquisar lotes por nome, descrição ou localização</label>
+          <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="search-input" type="search" name="q" placeholder="Pesquisar por nome, descrição ou localização" autocomplete="off">
+        </form>
+      </div>
+    </section>
+
+    <section class="catalog" id="catalogo" aria-labelledby="titulo-lotes">
+      <div class="container">
+        <h2 class="visually-hidden" id="titulo-lotes">Lotes</h2>
+
+        <div class="filters" role="group" aria-label="Filtros do catálogo">
+          <div class="field">
+            <label for="filter-category">Categoria</label>
+            <select id="filter-category"></select>
+          </div>
+          <div class="field">
+            <label for="filter-status">Situação</label>
+            <select id="filter-status"></select>
+          </div>
+          <div class="field">
+            <label for="filter-location">Localização</label>
+            <select id="filter-location"></select>
+          </div>
+          <button type="button" class="btn btn-ghost" id="clear-filters">Limpar filtros</button>
+        </div>
+
+        <p class="result-count" id="result-count" role="status" aria-live="polite"></p>
+
+        <div class="lot-grid" id="lot-grid"></div>
+
+        <div class="empty-state" id="empty-state" hidden>
+          <h3>Nenhum lote encontrado</h3>
+          <p>Tente outro termo de pesquisa ou remova alguns filtros para ver mais lotes.</p>
+          <button type="button" class="btn btn-primary" id="empty-clear">Limpar filtros</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="process" id="como-funciona" aria-labelledby="titulo-processo">
+      <div class="container">
+        <h2 id="titulo-processo">Como funciona a consulta</h2>
+        <ol class="steps">
+          <li>
+            <h3>Explore o catálogo</h3>
+            <p>Use a pesquisa e os filtros para encontrar lotes por categoria, situação ou localização.</p>
+          </li>
+          <li>
+            <h3>Confira os detalhes</h3>
+            <p>Abra o lote para ver imagem, descrição, localização e o valor informado.</p>
+          </li>
+          <li>
+            <h3>Fale pelo WhatsApp</h3>
+            <p>A mensagem já sai com o número e o título do lote escolhido.</p>
+          </li>
+          <li>
+            <h3>Confirme as condições</h3>
+            <p>Prazos, documentos e condições de participação são informados diretamente no atendimento.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contato">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <p class="footer-brand">LEILÃO DOS BRASILEIROS</p>
+        <p>Catálogo de lotes com atendimento pelo WhatsApp.</p>
+        <button type="button" class="btn btn-whatsapp" data-contact="general">Falar pelo WhatsApp</button>
+      </div>
+
+      <nav aria-label="Navegação do rodapé">
+        <h2 class="footer-title">Navegação</h2>
+        <ul>
+          <li><a href="#catalogo">Catálogo</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#topo">Voltar ao topo</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2 class="footer-title">Contato</h2>
+        <!-- Preencha com os dados reais: e-mail, telefone, endereço e horário de atendimento. -->
+        <ul>
+          <li>WhatsApp: atendimento pelo botão ao lado</li>
+          <li>E-mail: a definir</li>
+          <li>Endereço: a definir</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer-title">Informações institucionais</h2>
+        <!-- Preencha com razão social, CNPJ e demais dados oficiais SOMENTE quando forem reais. -->
+        <p>Os dados institucionais da empresa serão informados aqui.</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year"></span> Leilão dos Brasileiros. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Painel de detalhes do lote -->
+  <dialog class="lot-dialog" id="lot-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-body">
+      <button type="button" class="dialog-close" id="dialog-close" aria-label="Fechar detalhes">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+      <div class="dialog-media" id="dialog-media"></div>
+      <div class="dialog-content">
+        <p class="dialog-meta" id="dialog-meta"></p>
+        <h2 id="dialog-title"></h2>
+        <p class="dialog-location" id="dialog-location"></p>
+        <dl class="dialog-facts">
+          <div><dt>Situação</dt><dd id="dialog-status"></dd></div>
+          <div><dt id="dialog-price-label">Valor informado</dt><dd id="dialog-price"></dd></div>
+        </dl>
+        <p class="dialog-description" id="dialog-description"></p>
+        <p class="dialog-demo" id="dialog-demo" hidden>Lote de exemplo, apenas para demonstração visual.</p>
+        <div class="dialog-actions">
+          <button type="button" class="btn btn-whatsapp" id="dialog-contact">Consultar este lote pelo WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Avisos curtos (por exemplo, WhatsApp ainda não configurado) -->
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
